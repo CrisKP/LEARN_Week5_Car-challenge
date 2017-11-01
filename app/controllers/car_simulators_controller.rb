@@ -13,7 +13,6 @@ class CarSimulatorsController < ApplicationController
 
   def show
     @car = YAML.load(session[:car])
-    @car.speed
 
     if params.has_key?(:accelerate)
       @car.accelerate
@@ -21,9 +20,19 @@ class CarSimulatorsController < ApplicationController
     end
 
     if params.has_key?(:brake)
-      @car.brake unless @car.speed == 0
+      if @car.speed < 7 && @car.speed >= 0
+        @car.brake(@car.speed)
+      else
+        @car.brake
+      end
       session[:car] = @car.to_yaml
     end
+
+    if params.has_key?(:lights)
+      @car.lights
+      session[:car] = @car.to_yaml
+    end
+
 
 
 
