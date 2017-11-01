@@ -12,11 +12,20 @@ The model year is: <%= cookies[:model_year] %>
   <input type="submit" name="accelerate" value="Gas pedal" id="gasPedal"/>
   <input type="submit" name="lights" value="Headlights" id="headLights"/>
 </form>
+  <br />
+  <br />
+
+<form action "status" method="get">
+  Set Emergency Brake <input type="radio" name="e_brake" value="on"> &nbsp &nbsp
+  Release Emergency Brake <input type="radio" name="e_brake" value="off"> &nbsp &nbsp
+  <input type="submit" name="submit_e_brake" value="Submit emergency brake" id="eBrake"/>
+</form>
 
 <br />
 Your car's current speed is: <%= @car.speed %> km/h
 
-<br>
+<br />
 Your car's lights are: <%= @car.show_lights %>
 
 <br />
+Your car's emergency break is: <%= @car.e_brake %>

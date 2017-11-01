@@ -33,12 +33,16 @@ class CarSimulatorsController < ApplicationController
       session[:car] = @car.to_yaml
     end
 
+    if params[:e_brake] == "on"
+      @car.set_e_brake
+      session[:car] = @car.to_yaml
+    end
 
-
-
+    if params[:e_brake] == "off"
+      @car.release_e_brake
+      session[:car] = @car.to_yaml
+    end
 
   end
-
-
 
 end

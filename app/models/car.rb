@@ -4,6 +4,7 @@ class Car
     @make = make
     @model_year = model_year
     @lights = lights
+    @e_brake = "on"
   end
 
   def make
@@ -19,7 +20,9 @@ class Car
   end
 
   def accelerate
-    @speed += 10
+    if @e_brake == "off"
+      @speed += 10
+    end
   end
 
   def brake(num=7)
@@ -38,5 +41,19 @@ class Car
     end
     @result
   end
+
+  def set_e_brake
+    @e_brake = "on"
+  end
+
+  def release_e_brake
+    @e_brake = "off"
+  end
+
+  def e_brake
+    @e_brake
+  end
+
+
 
 end
