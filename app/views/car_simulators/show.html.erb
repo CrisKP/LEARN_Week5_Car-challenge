@@ -1,0 +1,18 @@
+<h1>Here's your car, YO!</h1>
+
+
+Your car make is: <%= cookies[:make] %>
+<br />
+The model year is: <%= cookies[:model_year] %>
+<br />
+<br />
+
+<form action "status" method="get">
+  <input type="submit" name="brake" value="Brake pedal" id="brakePedal"/>
+  <input type="submit" name="accelerate" value="Gas pedal" id="gasPedal"/>
+</form>
+
+<br />
+Your car's current speed is: <%= @car.speed %> km/h
+
+<br />
